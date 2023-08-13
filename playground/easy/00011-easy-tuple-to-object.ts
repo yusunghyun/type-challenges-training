@@ -20,12 +20,15 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type TupleToObject<T extends readonly any[]> = any;
+type TupleToObject<T extends readonly any[]> = {
+  [key in T[number]]: key;
+};
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
 
 const tuple = ["tesla", "model 3", "model X", "model Y"] as const;
+
 const tupleNumber = [1, 2, 3, 4] as const;
 const tupleMix = [1, "2", 3, "4"] as const;
 
