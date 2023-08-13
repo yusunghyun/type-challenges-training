@@ -19,10 +19,10 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type TwoSum<T extends number[], U extends number> = any
+type TwoSum<T extends number[], U extends number> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<TwoSum<[3, 3], 6>, true>>,
@@ -37,7 +37,7 @@ type cases = [
   Expect<Equal<TwoSum<[1, 2, 3], 5>, true>>,
   Expect<Equal<TwoSum<[1, 2, 3], 6>, false>>,
   Expect<Equal<TwoSum<[3, 2, 0], 2>, true>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

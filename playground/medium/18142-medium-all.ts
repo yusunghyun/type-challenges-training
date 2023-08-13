@@ -22,16 +22,16 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type All = any
+type All = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<All<[1, 1, 1], 1>, true>>,
   Expect<Equal<All<[1, 1, 2], 1>, false>>,
-  Expect<Equal<All<['1', '1', '1'], '1'>, true>>,
-  Expect<Equal<All<['1', '1', '1'], 1>, false>>,
+  Expect<Equal<All<["1", "1", "1"], "1">, true>>,
+  Expect<Equal<All<["1", "1", "1"], 1>, false>>,
   Expect<Equal<All<[number, number, number], number>, true>>,
   Expect<Equal<All<[number, number, string], number>, false>>,
   Expect<Equal<All<[null, null, null], null>, true>>,
@@ -42,7 +42,7 @@ type cases = [
   Expect<Equal<All<[unknown], unknown>, true>>,
   Expect<Equal<All<[any], unknown>, false>>,
   Expect<Equal<All<[unknown], any>, false>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

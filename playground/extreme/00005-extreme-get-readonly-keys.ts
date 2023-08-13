@@ -24,26 +24,26 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type GetReadonlyKeys<T> = any
+type GetReadonlyKeys<T> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<'title', GetReadonlyKeys<Todo1>>>,
-  Expect<Equal<'title' | 'description', GetReadonlyKeys<Todo2>>>,
-]
+  Expect<Equal<"title", GetReadonlyKeys<Todo1>>>,
+  Expect<Equal<"title" | "description", GetReadonlyKeys<Todo2>>>,
+];
 
 interface Todo1 {
-  readonly title: string
-  description: string
-  completed: boolean
+  readonly title: string;
+  description: string;
+  completed: boolean;
 }
 
 interface Todo2 {
-  readonly title: string
-  readonly description: string
-  completed?: boolean
+  readonly title: string;
+  readonly description: string;
+  completed?: boolean;
 }
 
 /* _____________ 다음 단계 _____________ */

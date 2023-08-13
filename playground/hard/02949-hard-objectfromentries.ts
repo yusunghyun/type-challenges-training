@@ -26,22 +26,23 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type ObjectFromEntries<T> = any
+type ObjectFromEntries<T> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 interface Model {
-  name: string
-  age: number
-  locations: string[] | null
+  name: string;
+  age: number;
+  locations: string[] | null;
 }
 
-type ModelEntries = ['name', string] | ['age', number] | ['locations', string[] | null]
+type ModelEntries =
+  | ["name", string]
+  | ["age", number]
+  | ["locations", string[] | null];
 
-type cases = [
-  Expect<Equal<ObjectFromEntries<ModelEntries>, Model>>,
-]
+type cases = [Expect<Equal<ObjectFromEntries<ModelEntries>, Model>>];
 
 /* _____________ 다음 단계 _____________ */
 /*

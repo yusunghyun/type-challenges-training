@@ -18,19 +18,41 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Split<S extends string, SEP extends string> = any
+type Split<S extends string, SEP extends string> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<Split<'Hi! How are you?', 'z'>, ['Hi! How are you?']>>,
-  Expect<Equal<Split<'Hi! How are you?', ' '>, ['Hi!', 'How', 'are', 'you?']>>,
-  Expect<Equal<Split<'Hi! How are you?', ''>, ['H', 'i', '!', ' ', 'H', 'o', 'w', ' ', 'a', 'r', 'e', ' ', 'y', 'o', 'u', '?']>>,
-  Expect<Equal<Split<'', ''>, []>>,
-  Expect<Equal<Split<'', 'z'>, ['']>>,
-  Expect<Equal<Split<string, 'whatever'>, string[]>>,
-]
+  Expect<Equal<Split<"Hi! How are you?", "z">, ["Hi! How are you?"]>>,
+  Expect<Equal<Split<"Hi! How are you?", " ">, ["Hi!", "How", "are", "you?"]>>,
+  Expect<
+    Equal<
+      Split<"Hi! How are you?", "">,
+      [
+        "H",
+        "i",
+        "!",
+        " ",
+        "H",
+        "o",
+        "w",
+        " ",
+        "a",
+        "r",
+        "e",
+        " ",
+        "y",
+        "o",
+        "u",
+        "?",
+      ]
+    >
+  >,
+  Expect<Equal<Split<"", "">, []>>,
+  Expect<Equal<Split<"", "z">, [""]>>,
+  Expect<Equal<Split<string, "whatever">, string[]>>,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

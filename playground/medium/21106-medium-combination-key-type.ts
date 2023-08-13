@@ -14,17 +14,21 @@
 /* _____________ 여기에 코드 입력 _____________ */
 
 // 实现 Combs
-type Combs<T extends any[]> = any
+type Combs<T extends any[]> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
-type ModifierKeys = ['cmd', 'ctrl', 'opt', 'fn']
-type CaseTypeOne = 'cmd ctrl' | 'cmd opt' | 'cmd fn' | 'ctrl opt' | 'ctrl fn' | 'opt fn'
+type ModifierKeys = ["cmd", "ctrl", "opt", "fn"];
+type CaseTypeOne =
+  | "cmd ctrl"
+  | "cmd opt"
+  | "cmd fn"
+  | "ctrl opt"
+  | "ctrl fn"
+  | "opt fn";
 
-type cases = [
-  Expect<Equal<Combs<ModifierKeys>, CaseTypeOne>>,
-]
+type cases = [Expect<Equal<Combs<ModifierKeys>, CaseTypeOne>>];
 
 /* _____________ 다음 단계 _____________ */
 /*

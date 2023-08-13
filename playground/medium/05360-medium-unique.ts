@@ -20,18 +20,28 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Unique<T> = any
+type Unique<T> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<Unique<[1, 1, 2, 2, 3, 3]>, [1, 2, 3]>>,
   Expect<Equal<Unique<[1, 2, 3, 4, 4, 5, 6, 7]>, [1, 2, 3, 4, 5, 6, 7]>>,
-  Expect<Equal<Unique<[1, 'a', 2, 'b', 2, 'a']>, [1, 'a', 2, 'b']>>,
-  Expect<Equal<Unique<[string, number, 1, 'a', 1, string, 2, 'b', 2, number]>, [string, number, 1, 'a', 2, 'b']>>,
-  Expect<Equal<Unique<[unknown, unknown, any, any, never, never]>, [unknown, any, never]>>,
-]
+  Expect<Equal<Unique<[1, "a", 2, "b", 2, "a"]>, [1, "a", 2, "b"]>>,
+  Expect<
+    Equal<
+      Unique<[string, number, 1, "a", 1, string, 2, "b", 2, number]>,
+      [string, number, 1, "a", 2, "b"]
+    >
+  >,
+  Expect<
+    Equal<
+      Unique<[unknown, unknown, any, any, never, never]>,
+      [unknown, any, never]
+    >
+  >,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

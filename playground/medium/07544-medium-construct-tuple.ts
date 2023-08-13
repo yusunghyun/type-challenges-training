@@ -18,18 +18,18 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type ConstructTuple<L extends number> = any
+type ConstructTuple<L extends number> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<ConstructTuple<0>, []>>,
   Expect<Equal<ConstructTuple<2>, [unknown, unknown]>>,
-  Expect<Equal<ConstructTuple<999>['length'], 999>>,
+  Expect<Equal<ConstructTuple<999>["length"], 999>>,
   // @ts-expect-error
-  Expect<Equal<ConstructTuple<1000>['length'], 1000>>,
-]
+  Expect<Equal<ConstructTuple<1000>["length"], 1000>>,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

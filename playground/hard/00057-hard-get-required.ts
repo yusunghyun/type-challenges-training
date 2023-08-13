@@ -18,15 +18,17 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type GetRequired<T> = any
+type GetRequired<T> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<GetRequired<{ foo: number; bar?: string }>, { foo: number }>>,
-  Expect<Equal<GetRequired<{ foo: undefined; bar?: undefined }>, { foo: undefined }>>,
-]
+  Expect<
+    Equal<GetRequired<{ foo: undefined; bar?: undefined }>, { foo: undefined }>
+  >,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

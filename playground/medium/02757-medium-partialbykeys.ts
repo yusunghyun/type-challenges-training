@@ -26,36 +26,36 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type PartialByKeys<T, K> = any
+type PartialByKeys<T, K> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 interface User {
-  name: string
-  age: number
-  address: string
+  name: string;
+  age: number;
+  address: string;
 }
 
 interface UserPartialName {
-  name?: string
-  age: number
-  address: string
+  name?: string;
+  age: number;
+  address: string;
 }
 
 interface UserPartialNameAndAge {
-  name?: string
-  age?: number
-  address: string
+  name?: string;
+  age?: number;
+  address: string;
 }
 
 type cases = [
-  Expect<Equal<PartialByKeys<User, 'name'>, UserPartialName>>,
-  Expect<Equal<PartialByKeys<User, 'name' | 'age'>, UserPartialNameAndAge>>,
+  Expect<Equal<PartialByKeys<User, "name">, UserPartialName>>,
+  Expect<Equal<PartialByKeys<User, "name" | "age">, UserPartialNameAndAge>>,
   Expect<Equal<PartialByKeys<User>, Partial<User>>>,
   // @ts-expect-error
-  Expect<Equal<PartialByKeys<User, 'name' | 'unknown'>, UserPartialName>>,
-]
+  Expect<Equal<PartialByKeys<User, "name" | "unknown">, UserPartialName>>,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

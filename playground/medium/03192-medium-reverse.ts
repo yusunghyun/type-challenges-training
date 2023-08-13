@@ -19,23 +19,23 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Reverse<T> = any
+type Reverse<T> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<Reverse<[]>, []>>,
-  Expect<Equal<Reverse<['a', 'b']>, ['b', 'a']>>,
-  Expect<Equal<Reverse<['a', 'b', 'c']>, ['c', 'b', 'a']>>,
-]
+  Expect<Equal<Reverse<["a", "b"]>, ["b", "a"]>>,
+  Expect<Equal<Reverse<["a", "b", "c"]>, ["c", "b", "a"]>>,
+];
 
 type errors = [
   // @ts-expect-error
-  Reverse<'string'>,
+  Reverse<"string">,
   // @ts-expect-error
-  Reverse<{ key: 'value' }>,
-]
+  Reverse<{ key: "value" }>,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

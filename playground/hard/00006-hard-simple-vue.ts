@@ -46,46 +46,46 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-declare function SimpleVue(options: any): any
+declare function SimpleVue(options: any): any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 SimpleVue({
   data() {
     // @ts-expect-error
-    this.firstname
+    this.firstname;
     // @ts-expect-error
-    this.getRandom()
+    this.getRandom();
     // @ts-expect-error
-    this.data()
+    this.data();
 
     return {
-      firstname: 'Type',
-      lastname: 'Challenges',
+      firstname: "Type",
+      lastname: "Challenges",
       amount: 10,
-    }
+    };
   },
   computed: {
     fullname() {
-      return `${this.firstname} ${this.lastname}`
+      return `${this.firstname} ${this.lastname}`;
     },
   },
   methods: {
     getRandom() {
-      return Math.random()
+      return Math.random();
     },
     hi() {
-      alert(this.amount)
-      alert(this.fullname.toLowerCase())
-      alert(this.getRandom())
+      alert(this.amount);
+      alert(this.fullname.toLowerCase());
+      alert(this.getRandom());
     },
     test() {
-      const fullname = this.fullname
-      const cases: [Expect<Equal<typeof fullname, string>>] = [] as any
+      const fullname = this.fullname;
+      const cases: [Expect<Equal<typeof fullname, string>>] = [] as any;
     },
   },
-})
+});
 
 /* _____________ 다음 단계 _____________ */
 /*

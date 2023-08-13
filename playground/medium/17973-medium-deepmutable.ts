@@ -54,84 +54,84 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type DeepMutable = any
+type DeepMutable = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 interface Test1 {
-  readonly title: string
-  readonly description: string
-  readonly completed: boolean
+  readonly title: string;
+  readonly description: string;
+  readonly completed: boolean;
   readonly meta: {
-    readonly author: string
-  }
+    readonly author: string;
+  };
 }
 type Test2 = {
-  readonly a: () => 1
-  readonly b: string
+  readonly a: () => 1;
+  readonly b: string;
   readonly c: {
-    readonly d: boolean
+    readonly d: boolean;
     readonly e: {
       readonly g: {
         readonly h: {
-          readonly i: true
-          readonly j: 's'
-        }
-        readonly k: 'hello'
-      }
+          readonly i: true;
+          readonly j: "s";
+        };
+        readonly k: "hello";
+      };
       readonly l: readonly [
-        'hi',
+        "hi",
         {
-          readonly m: readonly ['hey']
+          readonly m: readonly ["hey"];
         },
-      ]
-    }
-  }
-}
+      ];
+    };
+  };
+};
 interface DeepMutableTest1 {
-  title: string
-  description: string
-  completed: boolean
+  title: string;
+  description: string;
+  completed: boolean;
   meta: {
-    author: string
-  }
+    author: string;
+  };
 }
 
 type DeepMutableTest2 = {
-  a: () => 1
-  b: string
+  a: () => 1;
+  b: string;
   c: {
-    d: boolean
+    d: boolean;
     e: {
       g: {
         h: {
-          i: true
-          j: 's'
-        }
-        k: 'hello'
-      }
+          i: true;
+          j: "s";
+        };
+        k: "hello";
+      };
       l: [
-        'hi',
+        "hi",
         {
-          m: ['hey']
+          m: ["hey"];
         },
-      ]
-    }
-  }
-}
+      ];
+    };
+  };
+};
 
 type cases = [
   Expect<Equal<DeepMutable<Test1>, DeepMutableTest1>>,
   Expect<Equal<DeepMutable<Test2>, DeepMutableTest2>>,
-]
+];
 
 type errors = [
   // @ts-expect-error
-  DeepMutable<'string'>,
+  DeepMutable<"string">,
   // @ts-expect-error
   DeepMutable<0>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

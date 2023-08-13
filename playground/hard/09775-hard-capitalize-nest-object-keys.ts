@@ -12,27 +12,27 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type CapitalizeNestObjectKeys<T> = any
+type CapitalizeNestObjectKeys<T> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
-import { ExpectFalse, NotEqual } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
+import { ExpectFalse, NotEqual } from "@type-challenges/utils";
 
 type foo = {
-  foo: string
-  bars: [{ foo: string }]
-}
+  foo: string;
+  bars: [{ foo: string }];
+};
 
 type Foo = {
-  Foo: string
-  Bars: [{
-    Foo: string
-  }]
-}
+  Foo: string;
+  Bars: [
+    {
+      Foo: string;
+    },
+  ];
+};
 
-type cases = [
-  Expect<Equal<Foo, CapitalizeNestObjectKeys<foo>>>,
-]
+type cases = [Expect<Equal<Foo, CapitalizeNestObjectKeys<foo>>>];
 
 /* _____________ 다음 단계 _____________ */
 /*

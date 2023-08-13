@@ -18,15 +18,17 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type GetOptional<T> = any
+type GetOptional<T> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<GetOptional<{ foo: number; bar?: string }>, { bar?: string }>>,
-  Expect<Equal<GetOptional<{ foo: undefined; bar?: undefined }>, { bar?: undefined }>>,
-]
+  Expect<
+    Equal<GetOptional<{ foo: undefined; bar?: undefined }>, { bar?: undefined }>
+  >,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

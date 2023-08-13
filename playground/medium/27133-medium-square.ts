@@ -12,10 +12,10 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Square<N extends number> = number
+type Square<N extends number> = number;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<Square<0>, 0>>,
@@ -29,7 +29,7 @@ type cases = [
   Expect<Equal<Square<-5>, 25>>,
   Expect<Equal<Square<-31>, 961>>,
   Expect<Equal<Square<-50>, 2500>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

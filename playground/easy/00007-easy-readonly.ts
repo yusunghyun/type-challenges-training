@@ -29,22 +29,22 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type MyReadonly<T> = any
+type MyReadonly<T> = {
+  readonly [key in keyof T]: T[key];
+};
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
-type cases = [
-  Expect<Equal<MyReadonly<Todo1>, Readonly<Todo1>>>,
-]
+type cases = [Expect<Equal<MyReadonly<Todo1>, Readonly<Todo1>>>];
 
 interface Todo1 {
-  title: string
-  description: string
-  completed: boolean
+  title: string;
+  description: string;
+  completed: boolean;
   meta: {
-    author: string
-  }
+    author: string;
+  };
 }
 
 /* _____________ 다음 단계 _____________ */

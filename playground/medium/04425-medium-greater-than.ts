@@ -25,10 +25,10 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type GreaterThan<T extends number, U extends number> = any
+type GreaterThan<T extends number, U extends number> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<GreaterThan<1, 0>, true>>,
@@ -40,7 +40,7 @@ type cases = [
   Expect<Equal<GreaterThan<10, 100>, false>>,
   Expect<Equal<GreaterThan<111, 11>, true>>,
   Expect<Equal<GreaterThan<1234567891011, 1234567891010>, true>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

@@ -18,11 +18,11 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Transpose<M extends number[][]> = any
+type Transpose<M extends number[][]> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
-import { ExpectFalse, NotEqual } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
+import { ExpectFalse, NotEqual } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<Transpose<[]>, []>>,
@@ -31,8 +31,13 @@ type cases = [
   Expect<Equal<Transpose<[[1, 2], [3, 4]]>, [[1, 3], [2, 4]]>>,
   Expect<Equal<Transpose<[[1, 2, 3], [4, 5, 6]]>, [[1, 4], [2, 5], [3, 6]]>>,
   Expect<Equal<Transpose<[[1, 4], [2, 5], [3, 6]]>, [[1, 2, 3], [4, 5, 6]]>>,
-  Expect<Equal<Transpose<[[1, 2, 3], [4, 5, 6], [7, 8, 9]]>, [[1, 4, 7], [2, 5, 8], [3, 6, 9]]>>,
-]
+  Expect<
+    Equal<
+      Transpose<[[1, 2, 3], [4, 5, 6], [7, 8, 9]]>,
+      [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+    >
+  >,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

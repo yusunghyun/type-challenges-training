@@ -12,17 +12,22 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type OptionalKeys<T> = any
+type OptionalKeys<T> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<OptionalKeys<{ a: number; b?: string }>, 'b'>>,
-  Expect<Equal<OptionalKeys<{ a: undefined; b?: undefined }>, 'b'>>,
-  Expect<Equal<OptionalKeys<{ a: undefined; b?: undefined; c?: string; d?: null }>, 'b' | 'c' | 'd'>>,
+  Expect<Equal<OptionalKeys<{ a: number; b?: string }>, "b">>,
+  Expect<Equal<OptionalKeys<{ a: undefined; b?: undefined }>, "b">>,
+  Expect<
+    Equal<
+      OptionalKeys<{ a: undefined; b?: undefined; c?: string; d?: null }>,
+      "b" | "c" | "d"
+    >
+  >,
   Expect<Equal<OptionalKeys<{}>, never>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

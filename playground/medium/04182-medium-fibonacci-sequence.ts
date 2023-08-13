@@ -21,17 +21,17 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Fibonacci<T extends number> = any
+type Fibonacci<T extends number> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<Fibonacci<1>, 1>>,
   Expect<Equal<Fibonacci<2>, 1>>,
   Expect<Equal<Fibonacci<3>, 2>>,
   Expect<Equal<Fibonacci<8>, 21>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

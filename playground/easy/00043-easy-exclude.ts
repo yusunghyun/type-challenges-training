@@ -18,16 +18,18 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type MyExclude<T, U> = any
+type MyExclude<T, U> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<MyExclude<'a' | 'b' | 'c', 'a'>, 'b' | 'c'>>,
-  Expect<Equal<MyExclude<'a' | 'b' | 'c', 'a' | 'b'>, 'c'>>,
-  Expect<Equal<MyExclude<string | number | (() => void), Function>, string | number>>,
-]
+  Expect<Equal<MyExclude<"a" | "b" | "c", "a">, "b" | "c">>,
+  Expect<Equal<MyExclude<"a" | "b" | "c", "a" | "b">, "c">>,
+  Expect<
+    Equal<MyExclude<string | number | (() => void), Function>, string | number>
+  >,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

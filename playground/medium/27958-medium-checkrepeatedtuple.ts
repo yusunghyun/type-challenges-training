@@ -19,11 +19,11 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type CheckRepeatedTuple<T extends unknown[]> = any
+type CheckRepeatedTuple<T extends unknown[]> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
-import { ExpectFalse, NotEqual } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
+import { ExpectFalse, NotEqual } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<CheckRepeatedTuple<[number, number, string, boolean]>, true>>,
@@ -32,7 +32,7 @@ type cases = [
   Expect<Equal<CheckRepeatedTuple<[1, 2, 1]>, true>>,
   Expect<Equal<CheckRepeatedTuple<[]>, false>>,
   Expect<Equal<CheckRepeatedTuple<string[]>, false>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

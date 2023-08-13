@@ -20,19 +20,19 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type EndsWith<T extends string, U extends string> = any
+type EndsWith<T extends string, U extends string> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<EndsWith<'abc', 'bc'>, true>>,
-  Expect<Equal<EndsWith<'abc', 'abc'>, true>>,
-  Expect<Equal<EndsWith<'abc', 'd'>, false>>,
-  Expect<Equal<EndsWith<'abc', 'ac'>, false>>,
-  Expect<Equal<EndsWith<'abc', ''>, true>>,
-  Expect<Equal<EndsWith<'abc', ' '>, false>>,
-]
+  Expect<Equal<EndsWith<"abc", "bc">, true>>,
+  Expect<Equal<EndsWith<"abc", "abc">, true>>,
+  Expect<Equal<EndsWith<"abc", "d">, false>>,
+  Expect<Equal<EndsWith<"abc", "ac">, false>>,
+  Expect<Equal<EndsWith<"abc", "">, true>>,
+  Expect<Equal<EndsWith<"abc", " ">, false>>,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

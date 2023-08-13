@@ -19,12 +19,12 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Slice<Arr, Start, End> = any
+type Slice<Arr, Start, End> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
-type Arr = [1, 2, 3, 4, 5]
+type Arr = [1, 2, 3, 4, 5];
 
 type cases = [
   // basic
@@ -46,7 +46,7 @@ type cases = [
   Expect<Equal<Slice<Arr, 10>, []>>,
   Expect<Equal<Slice<Arr, 1, 0>, []>>,
   Expect<Equal<Slice<Arr, 10, 20>, []>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

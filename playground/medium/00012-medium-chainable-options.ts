@@ -40,54 +40,54 @@
 /* _____________ 여기에 코드 입력 _____________ */
 
 type Chainable = {
-  option(key: string, value: any): any
-  get(): any
-}
+  option(key: string, value: any): any;
+  get(): any;
+};
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Alike, Expect } from '@type-challenges/utils'
+import type { Alike, Expect } from "@type-challenges/utils";
 
-declare const a: Chainable
+declare const a: Chainable;
 
 const result1 = a
-  .option('foo', 123)
-  .option('bar', { value: 'Hello World' })
-  .option('name', 'type-challenges')
-  .get()
+  .option("foo", 123)
+  .option("bar", { value: "Hello World" })
+  .option("name", "type-challenges")
+  .get();
 
 const result2 = a
-  .option('name', 'another name')
+  .option("name", "another name")
   // @ts-expect-error
-  .option('name', 'last name')
-  .get()
+  .option("name", "last name")
+  .get();
 
 const result3 = a
-  .option('name', 'another name')
+  .option("name", "another name")
   // @ts-expect-error
-  .option('name', 123)
-  .get()
+  .option("name", 123)
+  .get();
 
 type cases = [
   Expect<Alike<typeof result1, Expected1>>,
   Expect<Alike<typeof result2, Expected2>>,
   Expect<Alike<typeof result3, Expected3>>,
-]
+];
 
 type Expected1 = {
-  foo: number
+  foo: number;
   bar: {
-    value: string
-  }
-  name: string
-}
+    value: string;
+  };
+  name: string;
+};
 
 type Expected2 = {
-  name: string
-}
+  name: string;
+};
 
 type Expected3 = {
-  name: number
-}
+  name: number;
+};
 
 /* _____________ 다음 단계 _____________ */
 /*

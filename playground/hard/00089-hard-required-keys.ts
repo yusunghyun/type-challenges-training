@@ -19,17 +19,22 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type RequiredKeys<T> = any
+type RequiredKeys<T> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<RequiredKeys<{ a: number; b?: string }>, 'a'>>,
-  Expect<Equal<RequiredKeys<{ a: undefined; b?: undefined }>, 'a'>>,
-  Expect<Equal<RequiredKeys<{ a: undefined; b?: undefined; c: string; d: null }>, 'a' | 'c' | 'd'>>,
+  Expect<Equal<RequiredKeys<{ a: number; b?: string }>, "a">>,
+  Expect<Equal<RequiredKeys<{ a: undefined; b?: undefined }>, "a">>,
+  Expect<
+    Equal<
+      RequiredKeys<{ a: undefined; b?: undefined; c: string; d: null }>,
+      "a" | "c" | "d"
+    >
+  >,
   Expect<Equal<RequiredKeys<{}>, never>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

@@ -18,15 +18,20 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type UnionToIntersection<U> = any
+type UnionToIntersection<U> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<UnionToIntersection<'foo' | 42 | true>, 'foo' & 42 & true>>,
-  Expect<Equal<UnionToIntersection<(() => 'foo') | ((i: 42) => true)>, (() => 'foo') & ((i: 42) => true)>>,
-]
+  Expect<Equal<UnionToIntersection<"foo" | 42 | true>, "foo" & 42 & true>>,
+  Expect<
+    Equal<
+      UnionToIntersection<(() => "foo") | ((i: 42) => true)>,
+      (() => "foo") & ((i: 42) => true)
+    >
+  >,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

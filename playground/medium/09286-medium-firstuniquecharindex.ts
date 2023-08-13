@@ -12,18 +12,18 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type FirstUniqueCharIndex<T extends string> = any
+type FirstUniqueCharIndex<T extends string> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<FirstUniqueCharIndex<'leetcode'>, 0>>,
-  Expect<Equal<FirstUniqueCharIndex<'loveleetcode'>, 2>>,
-  Expect<Equal<FirstUniqueCharIndex<'aabb'>, -1>>,
-  Expect<Equal<FirstUniqueCharIndex<''>, -1>>,
-  Expect<Equal<FirstUniqueCharIndex<'aaa'>, -1>>,
-]
+  Expect<Equal<FirstUniqueCharIndex<"leetcode">, 0>>,
+  Expect<Equal<FirstUniqueCharIndex<"loveleetcode">, 2>>,
+  Expect<Equal<FirstUniqueCharIndex<"aabb">, -1>>,
+  Expect<Equal<FirstUniqueCharIndex<"">, -1>>,
+  Expect<Equal<FirstUniqueCharIndex<"aaa">, -1>>,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

@@ -19,21 +19,21 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type IsPalindrome<T> = any
+type IsPalindrome<T> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<IsPalindrome<'abc'>, false>>,
-  Expect<Equal<IsPalindrome<'b'>, true>>,
-  Expect<Equal<IsPalindrome<'abca'>, false>>,
-  Expect<Equal<IsPalindrome<'abba'>, true>>,
-  Expect<Equal<IsPalindrome<'abcba'>, true>>,
+  Expect<Equal<IsPalindrome<"abc">, false>>,
+  Expect<Equal<IsPalindrome<"b">, true>>,
+  Expect<Equal<IsPalindrome<"abca">, false>>,
+  Expect<Equal<IsPalindrome<"abba">, true>>,
+  Expect<Equal<IsPalindrome<"abcba">, true>>,
   Expect<Equal<IsPalindrome<121>, true>>,
   Expect<Equal<IsPalindrome<2332>, true>>,
   Expect<Equal<IsPalindrome<19260817>, false>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

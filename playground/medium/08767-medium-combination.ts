@@ -18,15 +18,33 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Combination<T extends string[]> = any
+type Combination<T extends string[]> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<Combination<['foo', 'bar', 'baz']>,
-  'foo' | 'bar' | 'baz' | 'foo bar' | 'foo bar baz' | 'foo baz' | 'foo baz bar' | 'bar foo' | 'bar foo baz' | 'bar baz' | 'bar baz foo' | 'baz foo' | 'baz foo bar' | 'baz bar' | 'baz bar foo'>>,
-]
+  Expect<
+    Equal<
+      Combination<["foo", "bar", "baz"]>,
+      | "foo"
+      | "bar"
+      | "baz"
+      | "foo bar"
+      | "foo bar baz"
+      | "foo baz"
+      | "foo baz bar"
+      | "bar foo"
+      | "bar foo baz"
+      | "bar baz"
+      | "bar baz foo"
+      | "baz foo"
+      | "baz foo bar"
+      | "baz bar"
+      | "baz bar foo"
+    >
+  >,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

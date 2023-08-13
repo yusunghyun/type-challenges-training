@@ -25,33 +25,33 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Mutable<T> = any
+type Mutable<T> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 interface Todo1 {
-  title: string
-  description: string
-  completed: boolean
+  title: string;
+  description: string;
+  completed: boolean;
   meta: {
-    author: string
-  }
+    author: string;
+  };
 }
 
-type List = [1, 2, 3]
+type List = [1, 2, 3];
 
 type cases = [
   Expect<Equal<Mutable<Readonly<Todo1>>, Todo1>>,
   Expect<Equal<Mutable<Readonly<List>>, List>>,
-]
+];
 
 type errors = [
   // @ts-expect-error
-  Mutable<'string'>,
+  Mutable<"string">,
   // @ts-expect-error
   Mutable<0>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

@@ -12,19 +12,27 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type UnionReplace<T, U extends [any, any][]> = any
+type UnionReplace<T, U extends [any, any][]> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
-import { ExpectFalse, NotEqual } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
+import { ExpectFalse, NotEqual } from "@type-challenges/utils";
 
 type cases = [
   // string -> null
   Expect<Equal<UnionReplace<number | string, [[string, null]]>, number | null>>,
 
   // Date -> string; Function -> undefined
-  Expect<Equal<UnionReplace<Function | Date | object, [[Date, string], [Function, undefined]]>, undefined | string | object>>,
-]
+  Expect<
+    Equal<
+      UnionReplace<
+        Function | Date | object,
+        [[Date, string], [Function, undefined]]
+      >,
+      undefined | string | object
+    >
+  >,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

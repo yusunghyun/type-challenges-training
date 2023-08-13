@@ -17,19 +17,32 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type FilterOut<T extends any[], F> = any
+type FilterOut<T extends any[], F> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<FilterOut<[], never>, []>>,
   Expect<Equal<FilterOut<[never], never>, []>>,
-  Expect<Equal<FilterOut<['a', never], never>, ['a']>>,
-  Expect<Equal<FilterOut<[1, never, 'a'], never>, [1, 'a']>>,
-  Expect<Equal<FilterOut<[never, 1, 'a', undefined, false, null], never | null | undefined>, [1, 'a', false]>>,
-  Expect<Equal<FilterOut<[number | null | undefined, never], never | null | undefined>, [number | null | undefined]>>,
-]
+  Expect<Equal<FilterOut<["a", never], never>, ["a"]>>,
+  Expect<Equal<FilterOut<[1, never, "a"], never>, [1, "a"]>>,
+  Expect<
+    Equal<
+      FilterOut<
+        [never, 1, "a", undefined, false, null],
+        never | null | undefined
+      >,
+      [1, "a", false]
+    >
+  >,
+  Expect<
+    Equal<
+      FilterOut<[number | null | undefined, never], never | null | undefined>,
+      [number | null | undefined]
+    >
+  >,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

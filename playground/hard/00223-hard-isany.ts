@@ -14,10 +14,10 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type IsAny<T> = any
+type IsAny<T> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<IsAny<any>, true>>,
@@ -26,7 +26,7 @@ type cases = [
   Expect<Equal<IsAny<unknown>, false>>,
   Expect<Equal<IsAny<never>, false>>,
   Expect<Equal<IsAny<string>, false>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

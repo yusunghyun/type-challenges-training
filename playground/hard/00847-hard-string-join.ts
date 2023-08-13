@@ -32,31 +32,31 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-declare function join(delimiter: any): (...parts: any[]) => any
+declare function join(delimiter: any): (...parts: any[]) => any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 // Edge cases
-const noCharsOutput = join('-')()
-const oneCharOutput = join('-')('a')
-const noDelimiterOutput = join('')('a', 'b', 'c')
+const noCharsOutput = join("-")();
+const oneCharOutput = join("-")("a");
+const noDelimiterOutput = join("")("a", "b", "c");
 
 // Regular cases
-const hyphenOutput = join('-')('a', 'b', 'c')
-const hashOutput = join('#')('a', 'b', 'c')
-const twoCharOutput = join('-')('a', 'b')
-const longOutput = join('-')('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h')
+const hyphenOutput = join("-")("a", "b", "c");
+const hashOutput = join("#")("a", "b", "c");
+const twoCharOutput = join("-")("a", "b");
+const longOutput = join("-")("a", "b", "c", "d", "e", "f", "g", "h");
 
 type cases = [
-  Expect<Equal<typeof noCharsOutput, ''>>,
-  Expect<Equal<typeof oneCharOutput, 'a'>>,
-  Expect<Equal<typeof noDelimiterOutput, 'abc'>>,
-  Expect<Equal<typeof twoCharOutput, 'a-b'>>,
-  Expect<Equal<typeof hyphenOutput, 'a-b-c'>>,
-  Expect<Equal<typeof hashOutput, 'a#b#c'>>,
-  Expect<Equal<typeof longOutput, 'a-b-c-d-e-f-g-h'>>,
-]
+  Expect<Equal<typeof noCharsOutput, "">>,
+  Expect<Equal<typeof oneCharOutput, "a">>,
+  Expect<Equal<typeof noDelimiterOutput, "abc">>,
+  Expect<Equal<typeof twoCharOutput, "a-b">>,
+  Expect<Equal<typeof hyphenOutput, "a-b-c">>,
+  Expect<Equal<typeof hashOutput, "a#b#c">>,
+  Expect<Equal<typeof longOutput, "a-b-c-d-e-f-g-h">>,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

@@ -12,18 +12,18 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Filter<T extends any[], P> = []
+type Filter<T extends any[], P> = [];
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
-type Falsy = false | 0 | '' | null | undefined
+type Falsy = false | 0 | "" | null | undefined;
 
 type cases = [
   Expect<Equal<Filter<[0, 1, 2], 2>, [2]>>,
   Expect<Equal<Filter<[0, 1, 2], 0 | 1>, [0, 1]>>,
   Expect<Equal<Filter<[0, 1, 2], Falsy>, [0]>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

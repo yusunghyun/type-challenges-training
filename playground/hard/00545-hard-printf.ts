@@ -21,19 +21,19 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Format<T extends string> = any
+type Format<T extends string> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<Format<'abc'>, string>>,
-  Expect<Equal<Format<'a%sbc'>, (s1: string) => string>>,
-  Expect<Equal<Format<'a%dbc'>, (d1: number) => string>>,
-  Expect<Equal<Format<'a%%dbc'>, string>>,
-  Expect<Equal<Format<'a%%%dbc'>, (d1: number) => string>>,
-  Expect<Equal<Format<'a%dbc%s'>, (d1: number) => (s1: string) => string>>,
-]
+  Expect<Equal<Format<"abc">, string>>,
+  Expect<Equal<Format<"a%sbc">, (s1: string) => string>>,
+  Expect<Equal<Format<"a%dbc">, (d1: number) => string>>,
+  Expect<Equal<Format<"a%%dbc">, string>>,
+  Expect<Equal<Format<"a%%%dbc">, (d1: number) => string>>,
+  Expect<Equal<Format<"a%dbc%s">, (d1: number) => (s1: string) => string>>,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

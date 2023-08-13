@@ -19,10 +19,10 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Chunk = any
+type Chunk = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<Chunk<[], 1>, []>>,
@@ -31,7 +31,7 @@ type cases = [
   Expect<Equal<Chunk<[1, 2, 3, 4], 2>, [[1, 2], [3, 4]]>>,
   Expect<Equal<Chunk<[1, 2, 3, 4], 5>, [[1, 2, 3, 4]]>>,
   Expect<Equal<Chunk<[1, true, 2, false], 2>, [[1, true], [2, false]]>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

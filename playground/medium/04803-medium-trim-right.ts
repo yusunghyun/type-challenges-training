@@ -18,20 +18,20 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type TrimRight<S extends string> = any
+type TrimRight<S extends string> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<TrimRight<'str'>, 'str'>>,
-  Expect<Equal<TrimRight<'str '>, 'str'>>,
-  Expect<Equal<TrimRight<'str     '>, 'str'>>,
-  Expect<Equal<TrimRight<'     str     '>, '     str'>>,
-  Expect<Equal<TrimRight<'   foo bar  \n\t '>, '   foo bar'>>,
-  Expect<Equal<TrimRight<''>, ''>>,
-  Expect<Equal<TrimRight<'\n\t '>, ''>>,
-]
+  Expect<Equal<TrimRight<"str">, "str">>,
+  Expect<Equal<TrimRight<"str ">, "str">>,
+  Expect<Equal<TrimRight<"str     ">, "str">>,
+  Expect<Equal<TrimRight<"     str     ">, "     str">>,
+  Expect<Equal<TrimRight<"   foo bar  \n\t ">, "   foo bar">>,
+  Expect<Equal<TrimRight<"">, "">>,
+  Expect<Equal<TrimRight<"\n\t ">, "">>,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

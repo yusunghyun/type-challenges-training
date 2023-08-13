@@ -28,27 +28,32 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Merge<F, S> = any
+type Merge<F, S> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type Foo = {
-  a: number
-  b: string
-}
+  a: number;
+  b: string;
+};
 type Bar = {
-  b: number
-  c: boolean
-}
+  b: number;
+  c: boolean;
+};
 
 type cases = [
-  Expect<Equal<Merge<Foo, Bar>, {
-    a: number
-    b: number
-    c: boolean
-  }>>,
-]
+  Expect<
+    Equal<
+      Merge<Foo, Bar>,
+      {
+        a: number;
+        b: number;
+        c: boolean;
+      }
+    >
+  >,
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

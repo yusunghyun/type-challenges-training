@@ -23,23 +23,28 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type PickByType<T, U> = any
+type PickByType<T, U> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 interface Model {
-  name: string
-  count: number
-  isReadonly: boolean
-  isEnable: boolean
+  name: string;
+  count: number;
+  isReadonly: boolean;
+  isEnable: boolean;
 }
 
 type cases = [
-  Expect<Equal<PickByType<Model, boolean>, { isReadonly: boolean; isEnable: boolean }>>,
+  Expect<
+    Equal<
+      PickByType<Model, boolean>,
+      { isReadonly: boolean; isEnable: boolean }
+    >
+  >,
   Expect<Equal<PickByType<Model, string>, { name: string }>>,
   Expect<Equal<PickByType<Model, number>, { count: number }>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

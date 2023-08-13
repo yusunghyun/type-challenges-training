@@ -19,17 +19,22 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type MutableKeys<T> = any
+type MutableKeys<T> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<MutableKeys<{ a: number; readonly b: string }>, 'a'>>,
-  Expect<Equal<MutableKeys<{ a: undefined; readonly b: undefined }>, 'a'>>,
-  Expect<Equal<MutableKeys<{ a: undefined; readonly b?: undefined; c: string; d: null }>, 'a' | 'c' | 'd'>>,
+  Expect<Equal<MutableKeys<{ a: number; readonly b: string }>, "a">>,
+  Expect<Equal<MutableKeys<{ a: undefined; readonly b: undefined }>, "a">>,
+  Expect<
+    Equal<
+      MutableKeys<{ a: undefined; readonly b?: undefined; c: string; d: null }>,
+      "a" | "c" | "d"
+    >
+  >,
   Expect<Equal<MutableKeys<{}>, never>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*

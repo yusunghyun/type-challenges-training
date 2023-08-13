@@ -18,23 +18,28 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Concat<T, U> = any
+type Concat<T, U> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
-const tuple = [1] as const
+const tuple = [1] as const;
 
 type cases = [
   Expect<Equal<Concat<[], []>, []>>,
   Expect<Equal<Concat<[], [1]>, [1]>>,
   Expect<Equal<Concat<typeof tuple, typeof tuple>, [1, 1]>>,
   Expect<Equal<Concat<[1, 2], [3, 4]>, [1, 2, 3, 4]>>,
-  Expect<Equal<Concat<['1', 2, '3'], [false, boolean, '4']>, ['1', 2, '3', false, boolean, '4']>>,
-]
+  Expect<
+    Equal<
+      Concat<["1", 2, "3"], [false, boolean, "4"]>,
+      ["1", 2, "3", false, boolean, "4"]
+    >
+  >,
+];
 
 // @ts-expect-error
-type error = Concat<null, undefined>
+type error = Concat<null, undefined>;
 
 /* _____________ 다음 단계 _____________ */
 /*

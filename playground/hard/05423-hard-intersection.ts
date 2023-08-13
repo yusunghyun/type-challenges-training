@@ -21,10 +21,10 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Intersection<T> = any
+type Intersection<T> = any;
 
 /* _____________ 테스트 케이스 _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<Intersection<[[1, 2], [2, 3], [2, 2]]>, 2>>,
@@ -33,7 +33,7 @@ type cases = [
   Expect<Equal<Intersection<[[1, 2, 3], [2, 3, 4], 3]>, 3>>,
   Expect<Equal<Intersection<[[1, 2, 3], 2 | 3 | 4, 2 | 3]>, 2 | 3>>,
   Expect<Equal<Intersection<[[1, 2, 3], 2, 3]>, never>>,
-]
+];
 
 /* _____________ 다음 단계 _____________ */
 /*
