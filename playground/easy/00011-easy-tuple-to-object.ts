@@ -20,6 +20,8 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
+type KeyType = string | number | symbol;
+
 type TupleToObject<T extends readonly any[]> = {
   [key in T[number]]: key;
 };
