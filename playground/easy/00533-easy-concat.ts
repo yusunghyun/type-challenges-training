@@ -17,8 +17,9 @@
 */
 
 /* _____________ 여기에 코드 입력 _____________ */
+type AllArrayType = readonly any[];
 
-type Concat<T, U> = any;
+type Concat<T extends AllArrayType, U extends AllArrayType> = [...T, ...U];
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
