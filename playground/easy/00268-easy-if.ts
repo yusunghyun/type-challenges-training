@@ -19,7 +19,7 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type If<C, T, F> = any;
+type If<C extends boolean, T, F> = C extends true ? T : F;
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
