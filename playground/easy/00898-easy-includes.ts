@@ -18,7 +18,17 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Includes<T extends readonly any[], U> = any;
+// 배열 요소 추출하고자 infer사용
+// mapping하고자 extends 썼지만 실패하고
+// 합집합으로 잡음.
+type Includes<T extends readonly any[], U> = T extends Array<infer R>
+  ? //  R과U의 합집합이 R이라면 포함된것임.
+    R | U extends R
+    ? true
+    : false
+  : never;
+
+type Asd = Includes<["Kars", "Esidisi", "Wamuu", "Santana"], "Dio">;
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
@@ -43,7 +53,7 @@ type cases = [
   Expect<Equal<Includes<[1], 1 | 2>, false>>,
   Expect<Equal<Includes<[1 | 2], 1>, false>>,
   Expect<Equal<Includes<[null], undefined>, false>>,
-  Expect<Equal<Includes<[undefined], null>, false>>,
+  Expect<Equal<Includes<[undefined], null>, false>>
 ];
 
 /* _____________ 다음 단계 _____________ */
