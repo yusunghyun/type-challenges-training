@@ -20,7 +20,15 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type MyParameters<T extends (...args: any[]) => any> = any;
+// 1. Array<infer R>로 'mapping'방식으로 접근하다가 재귀등을 생각했지만 길이 막힘.
+// 2. 배열 통째로 infer로 받으면 갯수와 mapping을 이용하기 좋겠다는 생각을 함.
+// 3. 생각해보니 solution은 args 타입 배열들을 그대로 리턴하기를 원했슴.
+// 4. args를 infer로 추출한 다음 뿌리기만 하면 끝.
+type MyParameters<T extends (...args: any[]) => any> = T extends (
+  ...args: infer R
+) => any
+  ? [...R]
+  : never;
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
@@ -32,7 +40,7 @@ const baz = (): void => {};
 type cases = [
   Expect<Equal<MyParameters<typeof foo>, [string, number]>>,
   Expect<Equal<MyParameters<typeof bar>, [boolean, { a: "A" }]>>,
-  Expect<Equal<MyParameters<typeof baz>, []>>,
+  Expect<Equal<MyParameters<typeof baz>, []>>
 ];
 
 /* _____________ 다음 단계 _____________ */
