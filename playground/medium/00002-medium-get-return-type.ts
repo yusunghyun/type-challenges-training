@@ -25,7 +25,13 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type MyReturnType<T> = any;
+// 1. 3312번 문제 응용
+
+type MyReturnType<T extends (...params: any[]) => any> = T extends (
+  ...params: any[]
+) => infer R
+  ? R
+  : never;
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
@@ -37,7 +43,7 @@ type cases = [
   Expect<Equal<Promise<boolean>, MyReturnType<() => Promise<boolean>>>>,
   Expect<Equal<() => "foo", MyReturnType<() => () => "foo">>>,
   Expect<Equal<1 | 2, MyReturnType<typeof fn>>>,
-  Expect<Equal<1 | 2, MyReturnType<typeof fn1>>>,
+  Expect<Equal<1 | 2, MyReturnType<typeof fn1>>>
 ];
 
 type ComplexObject = {
