@@ -20,14 +20,18 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type TupleToUnion<T> = any;
+// 1. 순회하며 배열 내 값을 추출해야지 하며 extends와 infer를 활용했는데
+// 2. extends 의 mapping 역할 덕에 답 도출.
+type TupleToUnion<T extends any[]> = T extends Array<infer R> ? R : never;
+
+type Asd = TupleToUnion<[123, "456", true]>;
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<TupleToUnion<[123, "456", true]>, 123 | "456" | true>>,
-  Expect<Equal<TupleToUnion<[123]>, 123>>,
+  Expect<Equal<TupleToUnion<[123]>, 123>>
 ];
 
 /* _____________ 다음 단계 _____________ */
