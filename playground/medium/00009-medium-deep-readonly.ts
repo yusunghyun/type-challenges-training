@@ -36,14 +36,25 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type DeepReadonly<T> = any;
+// 1. 8번 문제처럼 readonly순회삽입.
+// 2. deep 깊이가 미지수이므로 재귀 사용.
+// 3. 객체key와 array에 직접적인 readonly를 주므로
+// 4. 그 외 타입인 string,number,Function 일때만 no재귀
+
+type DeepReadonly<T> = {
+  readonly [key in keyof T]: T[key] extends string | number | Function
+    ? T[key]
+    : DeepReadonly<T[key]>;
+};
+
+type Asd = DeepReadonly<X1>;
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
   Expect<Equal<DeepReadonly<X1>, Expected1>>,
-  Expect<Equal<DeepReadonly<X2>, Expected2>>,
+  Expect<Equal<DeepReadonly<X2>, Expected2>>
 ];
 
 type X1 = {
@@ -63,7 +74,7 @@ type X1 = {
         "hi",
         {
           m: ["hey"];
-        },
+        }
       ];
     };
   };
@@ -88,7 +99,7 @@ type Expected1 = {
         "hi",
         {
           readonly m: readonly ["hey"];
-        },
+        }
       ];
     };
   };
