@@ -32,7 +32,14 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type MyReadonly2<T, K> = any;
+// 1. in 을 이용한 순회로 readonly 삽입.
+// 2. merge가 헷갈려서 interface를 쓰려다가 실패ㅠㅜ
+// 3. 남은 부분은 & 를 이용하여 merge.
+// 4. 제네릭 두번째 인자 optional 까먹어서 답 확인 후 초깃값 입력함.
+
+type MyReadonly2<T, K extends keyof T = keyof T> = {
+  readonly [key in K]: T[key];
+} & Omit<T, K>;
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Alike, Expect } from "@type-challenges/utils";
@@ -41,7 +48,7 @@ type cases = [
   Expect<Alike<MyReadonly2<Todo1>, Readonly<Todo1>>>,
   Expect<Alike<MyReadonly2<Todo1, "title" | "description">, Expected>>,
   Expect<Alike<MyReadonly2<Todo2, "title" | "description">, Expected>>,
-  Expect<Alike<MyReadonly2<Todo2, "description">, Expected>>,
+  Expect<Alike<MyReadonly2<Todo2, "description">, Expected>>
 ];
 
 // @ts-expect-error
