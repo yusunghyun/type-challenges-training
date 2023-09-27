@@ -38,10 +38,19 @@
 */
 
 /* _____________ 여기에 코드 입력 _____________ */
+// 1. option을 용도에 맞게 제네릭 두개 생성(<Key extends string, Val>)
+// 2. 재귀의 대상은 option만 있으므로 반환은 재귀.
+// 3. 객체가 합쳐져야하므로 & 연산자
+// 4. 키 값을 어떻게 주는지 잘 몰라서 record 사용
+// 5. 키값 겹칠 수 있으므로 omit
+// 6. 재귀로 누적되다가 최종은 get(): T
 
-type Chainable = {
-  option(key: string, value: any): any;
-  get(): any;
+type Chainable<T = {}> = {
+  option<Key extends string, Val>(
+    key: Key,
+    value: Val
+  ): Chainable<Omit<T, Key> & Record<Key, Val>>;
+  get(): T;
 };
 
 /* _____________ 테스트 케이스 _____________ */
@@ -70,7 +79,7 @@ const result3 = a
 type cases = [
   Expect<Alike<typeof result1, Expected1>>,
   Expect<Alike<typeof result2, Expected2>>,
-  Expect<Alike<typeof result3, Expected3>>,
+  Expect<Alike<typeof result3, Expected3>>
 ];
 
 type Expected1 = {
