@@ -24,7 +24,9 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Last<T extends any[]> = any;
+// 1. 지난번 왕규님의 배열 순회 추출 방식에 영감을 받아 [...any[], infer R] 사용
+
+type Last<T extends any[]> = T extends [...any[], infer R] ? R : never;
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
@@ -32,7 +34,7 @@ import type { Equal, Expect } from "@type-challenges/utils";
 type cases = [
   Expect<Equal<Last<[2]>, 2>>,
   Expect<Equal<Last<[3, 2, 1]>, 1>>,
-  Expect<Equal<Last<[() => 123, { a: string }]>, { a: string }>>,
+  Expect<Equal<Last<[() => 123, { a: string }]>, { a: string }>>
 ];
 
 /* _____________ 다음 단계 _____________ */
