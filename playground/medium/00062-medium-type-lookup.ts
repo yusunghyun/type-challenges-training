@@ -29,7 +29,12 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type LookUp<U, T> = any;
+// 1. | 는 never로 필터링
+// 2. U['type'] extends T ? U : never는 왜 안될까?
+
+type LookUp<U, T> = U extends { type: T } ? U : never;
+
+type Asd = LookUp<Animal, "dog">;
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
@@ -49,7 +54,7 @@ type Animal = Cat | Dog;
 
 type cases = [
   Expect<Equal<LookUp<Animal, "dog">, Dog>>,
-  Expect<Equal<LookUp<Animal, "cat">, Cat>>,
+  Expect<Equal<LookUp<Animal, "cat">, Cat>>
 ];
 
 /* _____________ 다음 단계 _____________ */
