@@ -18,7 +18,13 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type TrimLeft<S extends string> = any;
+// 1. shift 재귀 패턴과 유사한 방식
+// 2. *분기 더 안만들고 StringSpaceCase 유틸 타입 사용*
+
+type StringSpaceCase<T extends string> = ` ${T}` | `\n\t${T}`;
+type TrimLeft<S extends string> = S extends StringSpaceCase<infer R>
+  ? TrimLeft<R>
+  : S;
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
@@ -30,7 +36,7 @@ type cases = [
   Expect<Equal<TrimLeft<"     str     ">, "str     ">>,
   Expect<Equal<TrimLeft<"   \n\t foo bar ">, "foo bar ">>,
   Expect<Equal<TrimLeft<"">, "">>,
-  Expect<Equal<TrimLeft<" \n\t">, "">>,
+  Expect<Equal<TrimLeft<" \n\t">, "">>
 ];
 
 /* _____________ 다음 단계 _____________ */
