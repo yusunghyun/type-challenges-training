@@ -18,7 +18,20 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Replace<S extends string, From extends string, To extends string> = any;
+// 1. 화나서 From 빈문자열 케이스 예외 처리함.
+// 2. "중간에도" "하나만" replace하므로 양쪽 infer (재귀 x)
+
+type Replace<
+  S extends string,
+  From extends string,
+  To extends string
+> = From extends ""
+  ? S
+  : S extends `${infer Head}${From}${infer Tail}`
+  ? `${Head}${To}${Tail}`
+  : S;
+
+type Asd = Replace<"foobarbar", "", "foo">;
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
@@ -29,7 +42,7 @@ type cases = [
   Expect<Equal<Replace<"foobarbar", "", "foo">, "foobarbar">>,
   Expect<Equal<Replace<"foobarbar", "bar", "">, "foobar">>,
   Expect<Equal<Replace<"foobarbar", "bra", "foo">, "foobarbar">>,
-  Expect<Equal<Replace<"", "", "">, "">>,
+  Expect<Equal<Replace<"", "", "">, "">>
 ];
 
 /* _____________ 다음 단계 _____________ */
