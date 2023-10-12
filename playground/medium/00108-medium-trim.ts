@@ -18,7 +18,16 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Trim<S extends string> = any;
+// 1. TrimLeft 활용
+// 2. 뒤에꺼를 위해서 or 연산자로 앞 혹은 뒤 재귀
+// 3. 한번에는 안됨.
+
+type StringSpaceCase = ` ` | `\n` | `\t`;
+type Trim<S extends string> = S extends
+  | `${StringSpaceCase}${infer R}`
+  | `${infer R}${StringSpaceCase}`
+  ? Trim<R>
+  : S;
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
@@ -31,7 +40,7 @@ type cases = [
   Expect<Equal<Trim<"     str     ">, "str">>,
   Expect<Equal<Trim<"   \n\t foo bar \t">, "foo bar">>,
   Expect<Equal<Trim<"">, "">>,
-  Expect<Equal<Trim<" \n\t ">, "">>,
+  Expect<Equal<Trim<" \n\t ">, "">>
 ];
 
 /* _____________ 다음 단계 _____________ */
