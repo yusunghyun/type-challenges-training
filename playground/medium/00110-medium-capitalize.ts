@@ -17,8 +17,46 @@
 */
 
 /* _____________ 여기에 코드 입력 _____________ */
+type Alphabet =
+  | "a"
+  | "b"
+  | "c"
+  | "d"
+  | "e"
+  | "f"
+  | "g"
+  | "h"
+  | "i"
+  | "j"
+  | "k"
+  | "l"
+  | "m"
+  | "n"
+  | "o"
+  | "p"
+  | "q"
+  | "r"
+  | "s"
+  | "t"
+  | "u"
+  | "v"
+  | "w"
+  | "x"
+  | "y"
+  | "z";
 
-type MyCapitalize<S extends string> = any;
+// 1. S extends `${Alphabet}${infer R}` 하면 첫글자 제외 가능
+// 2. `${Uppercase<S[0]>}${R}` 실패..
+// 3. R이 첫글자 제외 나머지 string이므로 예전 베스트 솔루션 [any, infer R] 처럼
+// S extends `${infer E}${R}` 하면 "앞글자만 추출" 가능
+
+type MyCapitalize<S extends string> = S extends `${Alphabet}${infer R}`
+  ? S extends `${infer E}${R}`
+    ? `${Uppercase<E>}${R}`
+    : S
+  : S;
+
+type Asd = MyCapitalize<"FOOBAR">;
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
@@ -53,7 +91,7 @@ type cases = [
   Expect<Equal<MyCapitalize<"w">, "W">>,
   Expect<Equal<MyCapitalize<"x">, "X">>,
   Expect<Equal<MyCapitalize<"y">, "Y">>,
-  Expect<Equal<MyCapitalize<"z">, "Z">>,
+  Expect<Equal<MyCapitalize<"z">, "Z">>
 ];
 
 /* _____________ 다음 단계 _____________ */
