@@ -17,7 +17,16 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type Permutation<T> = any;
+// https://github.com/type-challenges/type-challenges/issues/614
+// 명강의...
+
+type Permutation<T, K = T> = [T] extends [never]
+  ? []
+  : K extends K
+  ? [K, ...Permutation<Exclude<T, K>>]
+  : never;
+
+type Asd = Permutation<"A" | "B" | "C">;
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
@@ -47,7 +56,7 @@ type cases = [
     >
   >,
   Expect<Equal<Permutation<boolean>, [false, true] | [true, false]>>,
-  Expect<Equal<Permutation<never>, []>>,
+  Expect<Equal<Permutation<never>, []>>
 ];
 
 /* _____________ 다음 단계 _____________ */
