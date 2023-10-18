@@ -23,7 +23,15 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type AppendArgument<Fn, A> = any;
+// 1. Parameters, ReturnType 활용하기로 생각함
+// 2. 기본 Function 타입은 Parameters에 못넣어서 FunctionType 생성.
+// 3. Parameters의 인자에 틀 맞추고자함
+// 4. Parameters의 반환값은 튜플이어서 그대로 튜플 차용
+
+type FunctionType = (...args: any) => any;
+type AppendArgument<Fn extends FunctionType, A> = (
+  ...args: [...Parameters<Fn>, x: A]
+) => ReturnType<Fn>;
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
@@ -38,7 +46,7 @@ type cases = [
   Expect<Equal<Case1, Result1>>,
   Expect<Equal<Case2, Result2>>,
   // @ts-expect-error
-  AppendArgument<unknown, undefined>,
+  AppendArgument<unknown, undefined>
 ];
 
 /* _____________ 다음 단계 _____________ */
