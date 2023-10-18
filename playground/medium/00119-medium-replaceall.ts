@@ -18,7 +18,24 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type ReplaceAll<S extends string, From extends string, To extends string> = any;
+// 1. 기존 replace를 재귀로 해결했지만 replace 후 합쳐진 word 재replace하는 이슈 발생
+// 2. 4번째에 Fix라는 optional param 을 파서 이미 replace된 '고정'해야하는 앞부분 분리 후 누적
+// 3. 최종은 고정하여 누적된 Fix + S
+
+type ReplaceAll<
+  S extends string,
+  From extends string,
+  To extends string,
+  Fix extends string = ""
+> = From extends ""
+  ? `${S}`
+  : S extends `${infer Head}${From}${infer Tail}`
+  ? ReplaceAll<`${Tail}`, From, To, `${Fix}${Head}${To}`>
+  : `${Fix}${S}`;
+
+type Asd = ReplaceAll<"foobarfoobar", "ob", "b">;
+type Asd2 = ReplaceAll<"foboorfoboar", "bo", "b">;
+type Asd3 = ReplaceAll<"t y p e s", " ", "">;
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
@@ -32,7 +49,7 @@ type cases = [
   Expect<Equal<ReplaceAll<"barfoo", "bar", "foo">, "foofoo">>,
   Expect<Equal<ReplaceAll<"foobarfoobar", "ob", "b">, "fobarfobar">>,
   Expect<Equal<ReplaceAll<"foboorfoboar", "bo", "b">, "foborfobar">>,
-  Expect<Equal<ReplaceAll<"", "", "">, "">>,
+  Expect<Equal<ReplaceAll<"", "", "">, "">>
 ];
 
 /* _____________ 다음 단계 _____________ */
